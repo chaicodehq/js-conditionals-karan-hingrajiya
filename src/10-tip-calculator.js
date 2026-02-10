@@ -31,4 +31,56 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  if (Number.isInteger(serviceRating) == false) {
+    return null;
+  }
+  if (
+    billAmount <= 0 ||
+    typeof serviceRating != "number" ||
+    serviceRating < 1 ||
+    serviceRating > 5
+  ) {
+    return null;
+  }
+
+  let tipPercentage = 0;
+  let tipAmount = 0;
+  let totalAmount = 0;
+  let finalAmount = 0;
+  let finalTipAmount = 0;
+  if (serviceRating == 1) {
+    tipPercentage = 5;
+    finalTipAmount = (tipPercentage / 100) * billAmount;
+    tipAmount = Number(finalTipAmount.toFixed(2));
+    finalAmount = billAmount + tipAmount;
+    totalAmount = Number(finalAmount.toFixed(2));
+  } else if (serviceRating == 2) {
+    tipPercentage = 10;
+    finalTipAmount = (tipPercentage / 100) * billAmount;
+    tipAmount = Number(finalTipAmount.toFixed(2));
+    finalAmount = billAmount + tipAmount;
+    totalAmount = Number(finalAmount.toFixed(2));
+  } else if (serviceRating == 3) {
+    tipPercentage = 15;
+    finalTipAmount = (tipPercentage / 100) * billAmount;
+    tipAmount = Number(finalTipAmount.toFixed(2));
+    finalAmount = billAmount + tipAmount;
+    totalAmount = Number(finalAmount.toFixed(2));
+  } else if (serviceRating == 4) {
+    tipPercentage = 20;
+    finalTipAmount = (tipPercentage / 100) * billAmount;
+    tipAmount = Number(finalTipAmount.toFixed(2));
+    finalAmount = billAmount + tipAmount;
+    totalAmount = Number(finalAmount.toFixed(2));
+  } else {
+    tipPercentage = 25;
+    finalTipAmount = (tipPercentage / 100) * billAmount;
+    tipAmount = Number(finalTipAmount.toFixed(2));
+    finalAmount = billAmount + tipAmount;
+    totalAmount = Number(finalAmount.toFixed(2));
+  }
+
+  // let finalAmount = Number(totalAmount.toFixed(2));
+  // let finalTipAmount = Number(tipAmount.toFixed(2));
+  return { tipPercentage, tipAmount, totalAmount };
 }
